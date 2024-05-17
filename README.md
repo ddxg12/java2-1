@@ -31,11 +31,11 @@
    1. setLayout(LayoutManger lm) 메소드 호출  
     - lm을 새로운 배치관리자로 설정  
      - 사례 : JPanel 컨테이너에 BorderLayout 배치관리자를 설정하는 예  
-      - ex: JPanel p = new JPanel();  
-            p.setLayout(new BorderLayout()); // JPanel에 BorderLayout 설정  
+       - ex: JPanel p = new JPanel();  
+             p.setLayout(new BorderLayout()); // JPanel에 BorderLayout 설정  
     - 컨텐트팬의 배치관리자를 FlowLayout 배치관리자로 설정  
-       - Container c = Frame.getConentPane(); // 프레임의 컨텐트팬 알아내기  
-         c.setLayout(new FlowLayout()); //컨텐트팬에 FlowLayout 설정  
+       - ex: Container c = Frame.getConentPane(); // 프레임의 컨텐트팬 알아내기  
+             c.setLayout(new FlowLayout()); //컨텐트팬에 FlowLayout 설정  
 ##### FlowLayout 배치관리자  
  - 배치방법  
    - 컴포넌트를 컨테이너 내에 왼쪽에서 오른쪽으로 배치(다시 위에서 아래로 순서대로 배치)  
