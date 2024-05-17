@@ -1,5 +1,52 @@
 # 최한솔 학번 : 202130235
 
+## 5월 17일 강의
+#### 컨테이너와 배치, 배치관리자 개념
+##### 컨테이너의 배치관리자  
+ 1. 컨테이너마다 하나의 배치관리자 존재  
+ 2. 컨테이너에 부착되는 컴포넌트의 위치와 크기 결정  
+ 3. 컨테이너의 크기가 변경되면, 컴포넌트의 위치와 크기 재결정  
+##### 배치 관리자 대표 유형 4가지  
+ - FlowLayout 배치관리자  
+  1. 컴포넌트가 삽입되는 순서대로 왼쪽에서 오른쪽으로 배치  
+  2. 배치할 공간이 없으면 아래로 내려와서 반복한다.  
+ - BorderLayout 배치관리자  
+  1. 컨테이너의 공간을 동(EAST),서(WEST),남(SOUTH),북(NORTH),중앙(CENTER)의 5개 영역으로 나눔  
+  2. 5개 영역 중 응용프로그램에서 지정한 영역에 컴포넌트 배치  
+ - GridLayout 배치관리자  
+  1. 컨테이너를 프로그램에서 설정한 동일한 크기의 2차원 격자로 나눔  
+  2. 컴포넌트는 삽입 순서대로 좌에서 우로, 다시 위에서 아래로 배치  
+ - CardLayout  
+  1. 컨테이너의 공간에 카드를 쌓아 놓은 듯이 컴포넌트를 쪼개어 배치  
+##### 컨테이너와 디폴트 배치관리자  
+  - 컨테이너 생성시 자동으로 생성되는 배치관리자  
+    - AWT와 스윙 컨테이너 -- 디폴트 배치관리자  
+    1. Window , JWindow -- BorderLayout  
+    2. Frame,JFrame -- BorderLayout  
+    3. Dialog,JDialog -- BorderLayout  
+    4. Panel,JPanel -- FlowLayout  
+    5. Applet,JApplet -- FlowLayout  
+##### 컨테이너에 새로운 배치관리자 설정  
+ - 컨테이너에 새로운 배치관리자 설정  
+   1. setLayout(LayoutManger lm) 메소드 호출  
+    - lm을 새로운 배치관리자로 설정  
+     - 사례 : JPanel 컨테이너에 BorderLayout 배치관리자를 설정하는 예  
+      - ex: JPanel p = new JPanel();  
+            p.setLayout(new BorderLayout()); // JPanel에 BorderLayout 설정  
+    - 컨텐트팬의 배치관리자를 FlowLayout 배치관리자로 설정  
+       - Container c = Frame.getConentPane(); // 프레임의 컨텐트팬 알아내기  
+         c.setLayout(new FlowLayout()); //컨텐트팬에 FlowLayout 설정  
+##### FlowLayout 배치관리자  
+ - 배치방법  
+   - 컴포넌트를 컨테이너 내에 왼쪽에서 오른쪽으로 배치(다시 위에서 아래로 순서대로 배치)  
+##### FlowLayout의 생성자  
+ - 생성자  
+   - FlowLayout()  
+   - FlowLayout(int align, int hGap, int vGap)  
+     1. align : 컴포넌트를 정렬하는 방법 지정. 왼쪽 정렬(FlowLayout.LEFT), 오른쪽 정렬(FlowLayout.RIGHT), 중앙 정렬(FlowLayout.CENTER(디폴트))  
+     2. hGap : 좌우 두 컴포넌트 사이의 수평 간격,픽셀 단위, 디폴트는 5  
+     3. vGap : 상하 두 컴포넌트 사이의 수직 간격,픽셀 단위, 디폴트는 5    
+ 
 
 ## 5월 3일 강의 
 ### 7단원. 컬렉션과 제네릭  
