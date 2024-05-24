@@ -200,8 +200,9 @@
       public void mouseClicked(MouseEvent e) {  
         if(e.getClickCount() == 2) {  
           ...// 더블클릭 처리 루틴  
-        }
+        }  
       }
+      
 
 
 
