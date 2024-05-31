@@ -1,5 +1,153 @@
 # 최한솔 학번 : 202130235
 
+## 5월 31일 강의  
+#### 자바의 GUI 프로그래밍 방법  
+##### 자바의 GUI 프로그래밍 방법 2 종류  
+ - 컴포넌트 기반 GUI 프로그래밍  
+   1. 스윙 컴포넌트를 이용하여 쉽게 GUI를 구축  
+   2. 자바에서 제공하는 컴포넌트의 한계를 벗어나지 못함  
+ - 그래픽 기반 GUI 프로그래밍  
+   1. 그래픽을 이용하여 GUI 구축  
+   2. 개발자가 직접 그래픽으로 화면을 구성하는 부담  
+   3. 독특한 GUI를 구성할 수 있는 장점  
+   4. GUI 처리의 실행 속도가 빨라, 게임 등에 주로 이용    
+   * 스윙 컴포넌트는 이름이 모두 J자로 시작한다.  
+#### 스윙 컴포넌트의 공통 메소드, JComponent의 메소드  
+##### jComponent  
+   1. 스윙 컴포넌트는 모두 상속받는 슈퍼 클래스, 추상 클래스  
+   2. 스윙 컴포넌트들이 상속받는 공통 메소드와 상수 구현  
+#### JLabel로 문자열과 이미지 출력  
+##### JLabel의 용도   
+ - 문자열이나 이미지를 화면에 출력하기 위한 목적 
+##### 레이블 생성  
+ - JLabeL() 빈 레이블  
+ - JLabeL(Icon image) 이미지 레이블  
+ - JLabeL(String text) 문자열 레이블  
+ - JLabeL(String text, Icon image, int hAlign) 문자열과 이미지 모두 가진 레이블  
+ - hAlign : 수평 정렬 값으로 SwingConstants.LEFT, SwingConstants.RIGHT, SwingConstants.CENTER 중 하나  
+#### 레이블 생성 예  
+##### 문자열 레이블 생성  
+ - ex : JLabel textLabel = new JLabel("사랑합니다");  
+##### 이미지 레이블 생성  
+ - 이미지 파일로부터 이미지를 읽기 위해 Imagelcon 클래스 사용  
+ - 다룰 수 있는 이미지 : png, gif, jpg  
+   - sunset.jpg의 경로명이 "images/sunset.jpg"인 경우  
+      Imageicon image = new ImageIcon("Images/sunset.jpg")  
+      JLabel imageLabel = new JLabel(image);    
+#### JButton으로 만들기  
+##### JButton의 용도  
+ - 버튼 모양의 컴포넌트. 사용자로부터 명령을 입력 받기 위한 목적  
+ - 버튼은 클릭될 때 Action 이벤트 발생  
+##### 버튼 생성  
+ - JButton() 빈 버튼  
+ - JButton(Icon image) 이미지 버튼  
+ - JButton(String text) 문자열 버튼  
+ - JButton(String text, Icon image) 문자열과 이미지 모두 가진 버튼  
+   - "hello" 문자열을 가진 버튼 생성 예시 : JButton btn = new JButton("hello");  
+#### 이미지 버튼 만들기  
+##### 하나의 버튼에 3 개의 이미지 등록  
+ - 마우스 조작에 따라 3개의 이미지 중 적절한 이미지 자동 출력  
+##### 3개의 버튼 이미지  
+ - normalicon  
+   1. 버튼의 보통 상태(디폴트)때 출력되는 이미지  
+   2. 생성자에 이미지 아이콘 전달 혹은 JButton의 setIcon(normallcon);  
+ - rollovericon  
+   1. 버튼에 마우스가 올라갈 때 출력되는 이미지  
+   2. 이미지 설정 메소드 : JButton의 setRolloverIcon(rollovericon);  
+ - pressedicon  
+   1. 버튼을 누른 상태 때 출력되는 이미지  
+   2. 이미지 설정 메소드 : JButton의 setPressedIcon(pressedicon);  
+#### 이미지 버튼에 이미지 설정  
+##### 이미지 로딩  
+ - 필요한 이미지 로딩 : new ImageIcon(이미지 경로명);  
+ - 사례 : ImageIcon normalicon = new ImageIcon("images/normalicon.gif");  
+##### 버튼에 이미지 등록  
+ - JButton의 메소드를 호출하여 이미지 등록  
+ - 사례 : JButton button = new JButton("테스트 버튼", normalicon); // normalicon 달기  
+ - 실행 중에 normal 이미지(디폴트 이미지) 교체 사례  : imageicon newicon = new imageicon("images/   newicon.gif")  
+            button.setIcon(newicon); //디폴트 이미지 변경  
+#### JCheckBox로 체크박스 만들기  
+##### JCheckBox의 용도  
+ - 선택(selected)과 비선택(deselected) 두 상태만 가지는 버튼  
+##### 체크박스 생성  
+ - JCheckBox() 빈 체크박스  
+ - JCheckBox(Icon image) 이미지 체크박스  
+ - JCheckBox(Icon image, boolean selected) 이미지 체크박스  
+ - JCheckBox(String text, Icon image) 문자열과 이미지를 가진 체크박스  
+ - JCheckBox(String text, Icon image, boolean selected) 문자열과 이미지 체크박스  
+ * selected : true면 선택 상태로 초기화  
+    - 문자열을 가진 체크박스 생성 예시 : JCheckBox apple =new JCheckBox("사과");//"사과"체크박스생성  
+#### 체크박스에 Item 이벤트 처리  
+##### Item 이벤트  
+ - 체크 박스의 선택 상태에 변화가 생길 때 발생하는 이벤트  
+   - 사용자가 마우스나 키보드로 체크박스를 선택/해제할 때  
+   - 프로그램에서 체크박스를 선택/해제하여 체크 상태에 변화가 생길 때    
+      JCheckBox c = new JCheckBox("사과");  
+      c.setSelected(true); // 선택 상태로 변경  
+ - 이벤트가 발생하면 ItemEvent 객체 생성  
+ - ItemListener 리스너를 이용하여 이벤트 처리  
+##### ItemListener 리스너의 추상 메소드  
+ - void ItemStateChanged(ItemEvent e) 체크박스의 선택 상태가 변하는 경우 호출  
+##### ItemEvent의 주요 메소드  
+ - int getStateChange() 체크박스가 선택된 경우 ItemEvent.SELECTED를, 해체된 경우 ItemEvent.DESELECTED를 리턴한다.  
+ - Object getItem() 이벤트를 발생시킨 아이템 객체를 리턴한다. 체크박스의 경우 JCheckBox 컴포넌트의 래퍼런스를 리턴한다.  
+#### JRadioButton으로 라디오버튼 만들기  
+##### JRadioButton의 용도  
+ - 버튼 그룹을 형성하고, 그룹에 속한 버튼 중 하나만 선택되는 라디오버튼  
+ - 체크박스와의 차이점  
+   - 체크 박스는 각각 선택/해제가 가능하지만, 라디오버튼은 그룹에 속한 버튼 중 하나만 선택  
+ - 라디오버튼 생성  
+   - JRadioButton() 빈 라디오버튼  
+   - JRadioButton(Icon image) 이미지 라디오버튼  
+   - JRadioButton(Icon image, boolean selected) 이미지 라디오버튼  
+   - JRadioButton(String text) 문자열 라디오버튼  
+   - JRadioButton(String text, boolean selected) 문자열 라디오버튼  
+   - JRadioButton(String text, Icon image) 문자열과 이미지를 가진 라디오버튼  
+   - JRadioButton(String text, Icon image, boolean selected) 문자열과 이미지를 가진 라디오버튼  
+   - selected : true면 선택 상태로 초기화  
+#### 라디오버튼 생성 및 Item 이벤트 처리  
+##### 버튼 그룹과 라디오버튼 생성 과정  
+  1. 버튼 그룹 객체 생성  
+  2. 라디오 버튼 생성  
+  3. 라디오버튼을 버튼 그룹에 삽입  
+  4. 라디오버튼을 컨테이너에 삽입  
+##### 라디오버튼에 Item 이벤트 처리 : ItemListener 리스너 이용  
+  - 라디오버튼이 선택/해제되어 상태가 달라지면, Item 이벤트 발생  
+    - 사용자가 마우스나 키보드로 선택 상태를 변경할 때  
+    - 프로그램에서 JRadioButton의 setSelected()를 호출하여 선택 상태를 변경할 때  
+#### JTextField로 한 줄 입력 창 만들기  
+##### JTextField  
+ - 한 줄의 문자열을 입력 받는 창(텍스트필드)  
+   - 텍스트 입력 도중 Enter 키가 입력되면 Action 이벤트 발생  
+   - 입력 가능한 문자 개수와 입력 창의 크기는 서로 다름  
+##### 텍스트필드 생성  
+ - JTextField() 빈 텍스트필드  
+ - JTextField(int cols) 입력 창의 열의 개수가 cols개인 텍스트필드  
+ - JTextField(String text) text 문자열로 초기화된 텍스트필드  
+ - JTextField(String text, int cols) 입력 창의 열의 개수는 cols개이고 text 문자열로 초기화된 텍스트필드  
+ - "컴퓨터공학과" 로 초깃값을 가지는 텍스트필드 생성 예시  
+    - JTextField tf2 = new JTextField("컴퓨터공학과")  
+#### TextArea로 여러 줄의 입력 창 만들기  
+##### JTextArea  
+ - 여러 줄의 문자열을 입력받을 수 있는 창(텍스트영역)  
+   - 스크롤바를 지원하지 않는다.  
+   - JScrollPane 객체에 삽입하여 스크롤바 지원받음  
+##### 생성자  
+ - JTextArea() 빈 텍스트 영역  
+ - JTextArea(int rows, int cols) 입력 창이 rows x cols개의 문자 크기인 텍스트영역  
+ - JTextArea(String text) text 문자열로 초기화된 텍스트영역  
+ - JTextArea(String text, int rows, int cols) 입력 창이 rows x cols개의 문자 크기이며 text 문자열로 초기화된 텍스트영역  
+#### JList<E>  
+##### JList.E  
+ - 하나 이상의 아이템을 보여주고 아이템을 선택하도록 하는 리스트  
+ - Java7부터 제네릭 리스트로 바뀜  
+   - E에 지정된 타입의 객체만 저장하는 리스트  
+ - JScrollPane에 JList.E 를 삽입하여 스크롤 가능  
+##### 리스트 생성  
+ - JList.E() 빈 리스트  
+ - JList.E(Vector ListData) 벡터로부터 아이템을 공급받는 리스트  
+ - JList.E(Object [] ListData) 배열로부터 아이템을 공급받는 리스트  
+#### JComboBox 
 ## 5월 24일 강의  
 #### 이벤트 기반 프로그래밍
 ##### 이벤트 기반 프로그래밍  
