@@ -137,7 +137,7 @@
  - JTextArea(int rows, int cols) 입력 창이 rows x cols개의 문자 크기인 텍스트영역  
  - JTextArea(String text) text 문자열로 초기화된 텍스트영역  
  - JTextArea(String text, int rows, int cols) 입력 창이 rows x cols개의 문자 크기이며 text 문자열로 초기화된 텍스트영역  
-#### JList<E>  
+#### JList.E  
 ##### JList.E  
  - 하나 이상의 아이템을 보여주고 아이템을 선택하도록 하는 리스트  
  - Java7부터 제네릭 리스트로 바뀜  
@@ -147,7 +147,61 @@
  - JList.E() 빈 리스트  
  - JList.E(Vector ListData) 벡터로부터 아이템을 공급받는 리스트  
  - JList.E(Object [] ListData) 배열로부터 아이템을 공급받는 리스트  
-#### JComboBox 
+#### JComboBox.E  
+##### JComboBox.E  
+ - 텍스트필드와 버튼, 그리고 드롭다운 리스트로 구성되는 콤보박스  
+ - 드롭다운 리스트에서 선택한 것이 텍스트필드에 나타남  
+##### 콤보박스 생성 예시  
+ - JComboBox.E() 빈 콤보박스  
+ - JComboBox.E(Vector ListData) 벡터로부터 아이템을 공급받는 콤보박스  
+ - JComboBox.E(Object [] ListData) 배열로부터 아이템을 공급받는 콤보박스  
+#### 메뉴 구성  
+##### 메뉴 만들기에 필요한 스윙 컴포넌트  
+ - 메뉴 아이템 - JMenuItem  
+ - 메뉴 - JMenu  
+   - 여러 개의 메뉴 아이템을 가짐  
+ - 메뉴바 - JMenuBar  
+   - 여러 개의 메뉴를 붙이는 바이며, 프레임에 부착됨  
+ - 분리선  
+   - 메뉴아이템 사이의 분리선으로 separator라고 부름  
+   - JMenu의 addSeparator()를 호출하여 삽입함    
+#### 메뉴아이템에 Action 이벤트 달기  
+#### 메뉴아이템을 클릭하면 Action 발생  
+ - 메뉴아이템은 사용자로부터의 지시나 명령을 받는데 사용  
+ - ActionListener 인터페이스로 리스너 작성  
+ - 각 메뉴아이템마다 이벤트 리스너 설정  
+#### 팝업 다이얼로그, JOptionPane  
+##### 팝업 다이얼로그  
+ - 사용자에게 메시지를 전달하거나 문자열을 간단히 입력받는 용도  
+ - JOptionPane 클래스를 이용하여 생성  
+   - static 타입의 간단한 메소드 이용  
+##### 입력 다이얼로그 - JOptionPane.showInputDialog()  
+ - 한 줄을 입력받는 다이얼로그  
+   - static String JOptionPane.showInputDialog(String msg)  
+   - msg : 다이얼로그 메시지  
+   - 리턴 값 : 사용자가 입력한 문자열. 취소버튼이 선택되거나 창이 닫히면 Null로 리턴  
+#### 확인 다이얼로그  
+##### 확인 다이얼로그 - JOptionPane.showConfirmDialog()  
+ - 사용자로부터 Yes/No 응답을 입력 받는 다이얼로그  
+    - static int JOptionPane.showConfirmDialog(Component parentComponent, Object msg,String title, int optionType)  
+    - parentComponent : 다이얼로그의 부모 컴포넌트로서 다이얼로그가 출력되는 영역의 범위 지정을 위해 사용(예: 프레임). null이면 전체 화면 중앙에 출력  
+    - msg : 다이얼로그 메시지  
+    - title : 다이얼로그 타이틀  
+    - optionType : 다이얼로그 옵션 종류 지정  
+      YES_NO_OPTION, YES_NO_CANCEL_OPTION, OK_CANCEL_OPTION  
+    - 리턴 값 : 사용자가 선택한 옵션 종류  
+      YES_OPTION, NO_OPTION, CANCEL_OPTION, OK_OPTION, CLOSED_OPTION  
+#### 메시지 다이얼로그  
+##### 메시지 다이얼로그 - showMessageDialog  
+ - 단순 메시지를 출력하는 다이얼로그  
+    - static void JOptionPane,showMessageDialog(Component parentComponent,Object msg, String title, int messageType)  
+    - parentComponent : 다이얼로그의 부모 컴포넌트로서 다이얼로그가 출력되는 영역의 범위 지정을 위해 사용(예 : 프라임). null이면 전체 화면 중앙에 출력  
+    - msg : 다이얼로그 메시지  
+    - title : 다이얼로그 타이틀  
+    - messageType : 다이얼로그의 종류로서 다음 중 하나  
+      ERROR_MESSAGE, INFORMATION_MESSAGE, WARNING_MESSAGE, QUESTION_MESSAGE, PLAIN_MESSAGE 
+
+
 ## 5월 24일 강의  
 #### 이벤트 기반 프로그래밍
 ##### 이벤트 기반 프로그래밍  

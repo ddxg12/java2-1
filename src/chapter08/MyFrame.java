@@ -1,4 +1,4 @@
-package chapter02;
+package chapter08;
 import javax.swing.*;
 public class MyFrame extends JFrame {
     public MyFrame() {

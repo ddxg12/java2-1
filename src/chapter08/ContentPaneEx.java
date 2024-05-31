@@ -1,4 +1,4 @@
-package chapter02;
+package chapter08;
 
 import java.awt.Color;
 import java.awt.Container;
