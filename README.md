@@ -1,5 +1,74 @@
 # 최한솔 학번 : 202130235
 
+## 6월 7일 강의  
+#### 스윙 컴포넌트 그리기,paintComponent()  
+##### 스윙의 페인팅 기본  
+ - 모든 컴포넌트는 자신의 모양을 스스로 그린다.  
+ - 컨테이너는 자신을 그린 후 그 위에 자식 컴포넌트들에게 그리기 지시  
+ - 모든 스윙 컴포넌트는 자신의 모양을 그리는 paintComponent() 메소드 보유  
+##### public void paintComponent(Graphics g)  
+ - 스윙 컴포넌트가 자신의 모양을 그리는 메소드  
+ - JComponent의 메소드 : 모든 스윙 컴포넌트가 이 메소드를 오버라이딩함  
+ - 언제 호출되는가?  
+   1. 컴포넌트가 그려져야 하는 시점마다 호출  
+   2. 크기가 변경되거나, 위치가 변경되거나, 컴포넌트가 가려졌던 것이 사라지는 등(개발자가 직접 호출하면 안됨)  
+ - 매개변수인 Graphics 객체  
+   1. 그래픽 컨텍스트 : 컴포넌트 그리기에 필요한 도구를 제공하는 객체  
+   2. 자바 플랫폼에 의해 공급  
+   3. 색 지정,도형 그리기,클리핑,이미지 그리기 등의 메소드 제공  
+#### paintComponent()의 오버라이딩과 JPanel  
+##### paintComponent(Graphic g)의 오버라이딩  
+ - 개발자가 JComponent를 상속받아 새로운 컴포넌트 설계  
+ - 기존 컴포넌트의 모양에 변화를 주고자 할때  
+##### JPanel  
+ - 비어 있는 컨테이너  
+ - 개발자가 다양한 GUI를 창출할 수 있는 캔버스로 적합  
+ - JPanel을 상속받아 개발자 임의의 모양을 가지는 패널로 많이 사용  
+#### 그래픽 기반 GUI 프로그래밍  
+##### 그래픽 기반 GUI 프로그래밍  
+ - 스윙 컴포넌트에 의존하지 않고 선, 원 이미지 등을 이용하여 직접 화면을 구성하는 방법  
+ - 그래픽 기반 GUI 포르그래밍의 학습이 필요한 이유  
+   1. 컴포넌트의 한계를 극복하고 차트, 게임 등 자유로운 콘텐트 표현  
+   2. 그래픽은 컴포넌트에 비해 화면 출력 속도가 빠름  
+   3. 스윙 컴포넌트들로 모두 그래픽으로 작성되어 있어, 그래픽에 대한 학습은 자바 GUI의 바탕 기술을 이해하는데 도움  
+   4. 그래픽을 이용하여 개발자 자신만의 컴포넌트 개발  
+#### Graphics와 문자열 출력  
+##### Graphics의 기능  
+ - 색상 선택하기  
+ - 문자열 그리기  
+ - 도형 그리기  
+ - 도형 칠하기  
+ - 이미지 그리기  
+ - 클리핑  
+##### 문자열 출력을 위한 Graphics 메소드  
+ - void drawString(String str, int x, int y) - str 문자열을(x,y)영역에 그림.현재 Graphics에 설정된 색과 폰트로 문자열 출력  
+#### 그래픽의 색과 폰트  
+##### 색 : Color 클래스  
+ - 자바의 색 : r(Red), g(Green), b(Blue) 성분으로 구성, 각 성분은 0~255(8비트) 범위의 정수  
+   - color(int r, int g, int b) r,g,b 값으로 sRGB 색 생성  
+##### 폰트 : Font 클래스  
+ - Font(String fontFace, int style, int size)  
+##### Graphics에 색과 폰트 설정  
+ - void setColor(Color color)  
+ - void setFont(Font font)  
+#### 도형 그리기와 칠하기  
+##### 도형 그리기  
+ - 선, 타원, 사각형, 둥근 모서리 사각형, 원호, 폐 다각형 그리기  
+ - 선의 굵기 조절할 수 없음  
+ - void drawLine(int x1, int y1, int x2, int y2) - (x1,y1)에서 (x2,y2)까지 선을 그린다.  
+ - void drawOval(int x, int y, int w, int h) - (x,y)에서 w * h 크기의 사각형에 내접하는 타원을 그린다.  
+ - void drawRect(int x, int y, int w, int h) - (x,y)에서 w * h 크기의 사각형을 그린다.  
+ - void drawRoundRect(int x, int y, int w, int h, int arcWidth, int arcHeight)  
+   (x,y)에서 w * h 크기의 사각형을 그리되, 4개의 모서리는 arcWidth, arcHeight를 이용하여 원호를 그린다.
+ ##### 도형 칠하기  
+ - 도형을 그리고 내부를 칠하는 기능  
+   - 도형의 외곽선과 내부를 따로 칠하는 기능 없음  
+ - 도형 칠하기를 위한 메소드  
+   - 그리기 메소드 명에서 draw 대신 fill로 이름 대치하면 됨. fillRect(), fillOval() 등  
+#### Graphics의 원호와 폐다각형 그리기 메소드  
+ - void drawArc(int x, int y, int w, int h, int startAngle, int arcAngle)  
+   (x,y)에서 w * h 크기의 사각형에 내접하는 원호를 그린다. 3시 방향이 0도의 기점이다. startAngle 지점에서 arcAngle 각도만큼 원호를 그린다. arcAngle이 양수이면 반시계 방향, 음수이면 시계 방향으로 그린다.  
+
 ## 5월 31일 강의  
 #### 자바의 GUI 프로그래밍 방법  
 ##### 자바의 GUI 프로그래밍 방법 2 종류  
